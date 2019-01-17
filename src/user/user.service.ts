@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { User } from './entity/user.entity';
 import { UserRepository } from './user.repository';
 
@@ -18,7 +17,9 @@ export class UserService {
   async getById(id: string) {
     return this.userRepository.findOne(id);
   }
-  async SetUser(id: string, dto: Partial<User>) {
-    return this.userRepository.save({ ...dto, userId: id });
+
+  async SetUser(userId: string, dto: Partial<User>) {
+    await this.userRepository.update({ userId }, { ...dto });
+    return this.userRepository.findOne(userId);
   }
 }
