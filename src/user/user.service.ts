@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { User } from './entity/user.entity';
 import { UserRepository } from './user.repository';
 
@@ -17,5 +16,29 @@ export class UserService {
    */
   async getById(id: string) {
     return this.userRepository.findOne(id);
+  }
+
+  /**
+   * Returns a user updated partially or totally
+   *
+   * @param id - user id
+   * @param dto - partial User
+   * @returns Resolves with User
+   */
+  async setUser(userId: string, dto: Partial<User>) {
+    await this.userRepository.update({ userId }, { ...dto });
+    return this.userRepository.findOne(userId);
+  }
+
+  
+  /**
+   * Returns a user updated partially or totally
+   *
+   * @param id - user id
+   * @param dto - partial User
+   * @returns Resolves with User
+   */
+  async addUser(id: string, dto: Partial<User>) {
+    return this.userRepository.save({ ...dto, id });
   }
 }
