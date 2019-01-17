@@ -18,7 +18,14 @@ export class UserService {
     return this.userRepository.findOne(id);
   }
 
-  async SetUser(userId: string, dto: Partial<User>) {
+  /**
+   * Returns a user updated partially or totally
+   *
+   * @param id - user id
+   * @param dto - partial User
+   * @returns Resolves with User
+   */
+  async setUser(userId: string, dto: Partial<User>) {
     await this.userRepository.update({ userId }, { ...dto });
     return this.userRepository.findOne(userId);
   }

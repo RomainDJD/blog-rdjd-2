@@ -17,6 +17,6 @@ export class UserController {
   }
   @Put(':id')
   async modifyById(@Param('id') id: string, @Body() dto: Partial<User>) {
-    return this.userService.SetUser(id, dto);
+    return this.userService.setUser(id, dto);
   }
 }
