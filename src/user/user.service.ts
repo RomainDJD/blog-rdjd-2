@@ -29,4 +29,7 @@ export class UserService {
     await this.userRepository.update({ userId }, { ...dto });
     return this.userRepository.findOne(userId);
   }
+
+  
+ 
 }

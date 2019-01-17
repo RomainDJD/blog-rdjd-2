@@ -19,4 +19,5 @@ export class UserController {
   async modifyById(@Param('id') id: string, @Body() dto: Partial<User>) {
     return this.userService.setUser(id, dto);
   }
+
 }
