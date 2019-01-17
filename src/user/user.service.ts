@@ -18,4 +18,7 @@ export class UserService {
   async getById(id: string) {
     return this.userRepository.findOne(id);
   }
+  async SetUser(id: string, dto: Partial<User>) {
+    return this.userRepository.save({ ...dto, userId: id });
+  }
 }

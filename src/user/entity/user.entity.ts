@@ -8,6 +8,8 @@ import {
 
 @Entity()
 export class User {
+  @Column({ type: 'boolean', name: 'admin' })
+  admin: boolean;
 
   @CreateDateColumn()
   created: Date;
@@ -29,6 +31,6 @@ export class User {
 
   @UpdateDateColumn()
   updated: Date;
-  @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
+  @PrimaryGeneratedColumn({ name: 'user_id' })
   userId: string;
 }
