@@ -15,6 +15,10 @@ export class UserController {
   async getById(@Param('id') id: string) {
     return this.userService.getById(id);
   }
+  @Delete(':id')
+  async deleteById(@Param('id') id: string) {
+    return this.userService.deleteUser(id);
+  }
   @Put(':id')
   async modifyById(@Param('id') id: string, @Body() dto: Partial<User>) {
     return this.userService.setUser(id, dto);
