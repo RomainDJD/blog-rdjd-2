@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Delete } from '@nestjs/common';
 import { ApiResponse, ApiUseTags } from '@nestjs/swagger';
 import { User } from './entity/user.entity';
 import { UserService } from './user.service';
@@ -19,5 +19,11 @@ export class UserController {
   async modifyById(@Param('id') id: string, @Body() dto: Partial<User>) {
     return this.userService.setUser(id, dto);
   }
+  @Post('add')
+  async addById(@Param('id') id: string, @Body() dto: Partial<User>) {
+    return this.userService.addUser(id, dto);
+  }
+ 
 
 }
+
