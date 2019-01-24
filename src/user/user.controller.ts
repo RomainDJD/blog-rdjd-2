@@ -11,4 +11,10 @@ export class UserController {
   async getById(@Param('id') id: string) {
     return this.userService.getById(id);
   }
+
+    
+  @Get(':id')
+  async getUser(@Param('id') id: string, @Body() dto: Partial<User>) {
+    return this.userService.getUserPartial(id, dto);
+  }
 }
