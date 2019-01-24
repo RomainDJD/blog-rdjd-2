@@ -7,6 +7,10 @@ import {
     OneToOne,
     JoinColumn,
   } from 'typeorm';
+
+import [
+    {userId} from "../user/entity/user.entity.ts";
+]
   
   @Entity()
   export class Article {
@@ -31,7 +35,7 @@ import {
 
     @OneToOne(type => userId)
     @JoinColumn()
-    user_Id: userId;
+    user_Id: string;
 
    //  @ManyToOne(type => Category)
  //@JoinColumn() this decorator is optional for @ManyToOne, but required for @OneToOne
