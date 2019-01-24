@@ -19,12 +19,12 @@ import { User } from 'src/user/entity/user.entity';
     @UpdateDateColumn()
     updated: Date;
 
-    @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
+    @PrimaryGeneratedColumn('uuid', { name: 'article_id' })
     articleId: string;
 
     @ManyToOne(type => User)
     @JoinColumn()
-    user_Id: User;
+    author: User;
 
    //  @ManyToOne(type => Category)
  //@JoinColumn() this decorator is optional for @ManyToOne, but required for @OneToOne
