@@ -18,4 +18,17 @@ export class UserService {
   async getById(id: string) {
     return this.userRepository.findOne(id);
   }
+
+   /**
+   * Returns a user updated partially or totally
+   *
+   * @param id - user id
+   * @param dto - partial User
+   * @returns Resolves with User
+   */
+  async deleteUser(id: string) {
+    const user = await this.userRepository.findOne(id);
+    return this.userRepository.remove(user);
+  }
 }
+
