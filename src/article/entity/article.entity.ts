@@ -1,24 +1,12 @@
-import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn,
-    OneToOne,
-    JoinColumn,
-  } from 'typeorm';
+import {Column,CreateDateColumn,Entity,PrimaryGeneratedColumn,UpdateDateColumn,ManyToOne,JoinColumn}
+from 'typeorm';
 
-import [
-    {userId} from "../user/entity/user.entity.ts";
-]
+import { {userId} from "../user/entity/user.entity.ts"; }
   
   @Entity()
   export class Article {
   
     @CreateDateColumn()
-    created: Date;
-
-    @User_author()
     created: Date;
   
     @Column({ type: 'varchar', name: 'titre', length: 200 })
@@ -33,7 +21,7 @@ import [
     @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
     articleId: string;
 
-    @OneToOne(type => userId)
+    @ManyToOne(type => userId)
     @JoinColumn()
     user_Id: string;
 
