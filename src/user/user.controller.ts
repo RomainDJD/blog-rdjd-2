@@ -7,11 +7,6 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get(':id')
-  async getById(@Param('id') id: string) {
-    return this.userService.getById(id);
-  }
-
     
   @Get(':id')
   async getUser(@Param('id') id: string, @Body() dto: Partial<User>) {
