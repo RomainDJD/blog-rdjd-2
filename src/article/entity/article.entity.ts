@@ -1,5 +1,6 @@
 import {Column,CreateDateColumn,Entity,PrimaryGeneratedColumn,UpdateDateColumn,ManyToOne,JoinColumn}
 from 'typeorm';
+import { User } from 'src/user/entity/user.entity';
 
 
   
@@ -21,9 +22,9 @@ from 'typeorm';
     @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
     articleId: string;
 
-    @ManyToOne(type => userId)
+    @ManyToOne(type => User)
     @JoinColumn()
-    user_Id: string;
+    user_Id: User;
 
    //  @ManyToOne(type => Category)
  //@JoinColumn() this decorator is optional for @ManyToOne, but required for @OneToOne
