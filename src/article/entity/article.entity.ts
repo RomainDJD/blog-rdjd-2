@@ -1,7 +1,7 @@
 import {Column,CreateDateColumn,Entity,PrimaryGeneratedColumn,UpdateDateColumn,ManyToOne,JoinColumn}
 from 'typeorm';
 
-import { {userId} from "../user/entity/user.entity.ts"; }
+
   
   @Entity()
   export class Article {
