@@ -29,10 +29,10 @@ export class UserService {
     await this.userRepository.update({ userId }, { ...dto });
     return this.userRepository.findOne(userId);
   }
-  
+
   async deleteUser(id: string) {
     const user = await this.userRepository.findOne(id);
-    return this.userRepository.remove(user)
+    return this.userRepository.remove(user);
   }
 
   
