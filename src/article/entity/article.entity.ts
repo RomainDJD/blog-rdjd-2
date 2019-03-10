@@ -1,5 +1,6 @@
 import {Column,CreateDateColumn,Entity,PrimaryGeneratedColumn,UpdateDateColumn,ManyToOne,JoinColumn}
 from 'typeorm';
+import { User } from 'src/user/entity/user.entity';
 
 
   
@@ -18,10 +19,10 @@ from 'typeorm';
     @UpdateDateColumn()
     updated: Date;
 
-    @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
+    @PrimaryGeneratedColumn('uuid', { name: 'article_id' })
     articleId: string;
 
-    @ManyToOne(type => userId)
+    @ManyToOne(type => User)
     @JoinColumn()
     user_Id: string;
 
