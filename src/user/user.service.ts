@@ -4,6 +4,7 @@ import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
+  [x: string]: any;
   constructor(
     @Inject(UserRepository) private readonly userRepository: UserRepository,
   ) {}
