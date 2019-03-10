@@ -33,4 +33,5 @@ export class User {
   updated: Date;
   @PrimaryGeneratedColumn({ name: 'user_id' })
   userId: string;
+  
 }
