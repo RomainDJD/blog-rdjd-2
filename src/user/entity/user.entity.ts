@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class User {
+export class User { 
   @Column({ type: 'boolean', name: 'admin', default: false })
   admin: boolean;
 
