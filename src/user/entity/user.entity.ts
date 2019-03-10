@@ -13,6 +13,9 @@ import { UserCategory } from '../titre/user-category.enum';
 @Entity()
 export class User {
 
+  @Column({ type: 'bytea', name: 'avatar', nullable: true })
+  avatar: ArrayBuffer;
+  
   @CreateDateColumn()
   created: Date;
 
