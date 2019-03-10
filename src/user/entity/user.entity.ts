@@ -15,7 +15,7 @@ export class User {
   @Column({ type: 'boolean', name: 'admin', default: false })
   admin: boolean;
 
-  @Column({ type: 'bytea', name: 'avatar', nullable: true })
+  @Column({ type: 'blob', name: 'avatar', nullable: true })
   avatar: ArrayBuffer;
   
   @CreateDateColumn()
@@ -41,7 +41,7 @@ export class User {
   })
   category: UserCategory;
 
-  @Column({ type: 'varchar', name: 'password', default: ''  })
+  @Column({ type: 'varchar', name: 'password', default: ''})
   password: string;
 
   @UpdateDateColumn()
