@@ -29,9 +29,9 @@ describe('UserController (e2e)', () => {
         );
 
         const savedUser = await userRepository.save({
-          firstName: 'Georges',
-          lastName: 'Abidbol',
-          mobilePhone: '0233234567',
+          firstName: 'Romain',
+          lastName: 'Dias',
+          mobilePhone: '0665475755',
           email: 'georges.abidbol@mail.cod',
           category: UserCategory.Standard,
           password: 'azerty',
