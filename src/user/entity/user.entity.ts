@@ -29,6 +29,7 @@ export class User {
 
   @UpdateDateColumn()
   updated: Date;
+  
   @PrimaryGeneratedColumn('uuid', { name: 'user_id' })
   userId: string;
 }
