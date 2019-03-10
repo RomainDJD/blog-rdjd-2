@@ -25,7 +25,7 @@ export class UserController {
   @Put(':id')
   @ApiResponse({
     status: HttpStatus.OK,
-    description: 'Utilisateur mis à jour et retourné,
+    description: 'Utilisateur mis à jour et retourné',
   })
   async modifyById(@Param('id') id: string, @Body() dto: Partial<User>) {
     return this.userService.setUser(id, dto);
