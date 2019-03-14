@@ -26,8 +26,5 @@ import { User } from 'src/user/entity/user.entity';
     @JoinColumn()
     user_Id: string;
 
-   //  @ManyToOne(type => Category)
- //@JoinColumn() this decorator is optional for @ManyToOne, but required for @OneToOne
- //category: Category;
   }
   
