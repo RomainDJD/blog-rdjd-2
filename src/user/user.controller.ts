@@ -22,6 +22,11 @@ export class UserController {
   async getById(@Param('id') id: string) {
     return this.userService.getById(id);
   }
+
+  @Delete(':id')
+  async deleteById(@Param('id') id: string) {
+    return this.userService.deleteUser(id);
+  }
   @Put(':id')
   @ApiResponse({
     status: HttpStatus.OK,
