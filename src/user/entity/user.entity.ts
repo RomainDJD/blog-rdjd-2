@@ -6,9 +6,16 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+
+
+import { UserCategory } from '../titre/user-category.enum';
+
 @Entity()
 export class User {
 
+  @Column({ type: 'bytea', name: 'avatar', nullable: true })
+  avatar: ArrayBuffer;
+  
   @CreateDateColumn()
   created: Date;
 
@@ -23,6 +30,14 @@ export class User {
 
   @Column({ type: 'varchar', name: 'mobile_phone', length: 31 })
   mobilePhone: string;
+
+  @Column({
+    type: 'enum',
+    name: 'category',
+    enum: Object.keys(UserCategory).map(item => UserCategory[item]),
+    default: 'Standard',
+  })
+  category: UserCategory;
 
   @Column({ type: 'varchar', name: 'password' })
   password: string;
