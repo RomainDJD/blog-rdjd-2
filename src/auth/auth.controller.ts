@@ -1,9 +1,9 @@
-import { Body, Controller, Post, UsePipes } from '@nestjs/common';
+import { Body, Controller, Post, UsePipes, HttpStatus } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiOkResponse,
-  ApiUseTags,
+  ApiUseTags,ApiNotFoundResponse, ApiResponse,
 } from '@nestjs/swagger';
 import { User } from '../user/entity/user.entity';
 import { FormatEmail } from '../user/pipes/validate-email.pipe';
@@ -18,11 +18,13 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  @ApiOkResponse({
-    description: 'Connexion effectuée.',
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: 'User trouvé et retourné',
   })
-  @ApiBadRequestResponse({
-    description: 'Requête mal formée.',
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'User non trouvé :/',
   })
   login(@Body() payload: SignInDto): Promise<string> {
     return this.authService.signIn(payload.email, payload.password);
@@ -37,9 +39,6 @@ export class AuthController {
   })
   @UsePipes(FormatEmail)
   async register(@Body() registerDto: RegisterDto) {
-    // Create new user from dto
-    const user = new User(registerDto);
-    // Pass the user entity to the service
-    return this.authService.signUp(user);
+    // à faire
   }
 }
